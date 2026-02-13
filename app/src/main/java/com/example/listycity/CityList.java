@@ -23,9 +23,47 @@ public class CityList {
     }
 
 
+    /**
+     * Getter method for list of cities
+     * @return list: list of cities
+     */
     public List<City> getCities() {
         List<City> list = cities;
         Collections.sort(list);
         return list;
+    }
+
+    /**
+     * Method for checking if a city already exists in the list of cities
+     * @param city: City object to be checked in the list
+     * @return true if it exists, false if it does not.
+     */
+    public boolean hasCity(City city) {
+        for (City c : cities) {
+            if (c.equals(city)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Method to delete a city from the list
+     * @param city: city to be deleted from list
+     */
+    public void deleteCity(City city) {
+        for (int i = 0; i < cities.size(); i++) {
+            if (cities.get(i).equals(city)) {
+                cities.remove(i);
+            }
+        }
+    }
+
+    /**
+     * Method to count the number of cities in the list
+     * @return int: Size of cities list
+     */
+    public int countCities() {
+        return this.cities.size();
     }
 }
